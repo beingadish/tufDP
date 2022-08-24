@@ -42,6 +42,25 @@ int frogJumpTab(vector<int> &energy, vector<int> &dp){
 }
 
 
+// Optimisation (Space Optimisation)
+
+int frogJumpOptimsed(vector<int> &energy){
+    int prev = 0,sprev=0;
+    int curEnergy;
+
+    for(int i =1;i<energy.size();i++){
+        int fs = prev + abs(energy[i] - energy[i-1]);
+        int ss = INT_MAX;
+        if(i > 1) ss = sprev + abs(energy[i] - energy[i-2]);
+        curEnergy = min(fs,ss);
+        sprev = prev;
+        prev = curEnergy;
+    }
+
+    return prev;
+}
+
+
 void inputArray(int n,vector<int> &arr){
     cout << "Enter the Energy Level at each Staircase : ";
     for(int i =0;i<n;i++) cin >> arr[i];
@@ -54,6 +73,6 @@ int main(){
     vector<int> energy(stairs),dp(stairs,-1);
     inputArray(stairs,energy);
     cout << "Minimum Energy Required : ";
-    cout << frogJumpTab(energy,dp) << endl;
+    cout << frogJumpOptimsed(energy) << endl;
     return 0;
 }
