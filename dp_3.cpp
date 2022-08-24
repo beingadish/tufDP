@@ -3,6 +3,8 @@ using namespace std;
 
 // FROG JUMP (CodeStudio // CodingNinjas)
 
+// Method 1 : Using Simple Recursion (with Memoization)
+
 int frogJump(int ind, vector<int> &energy, vector<int> &dp){
 
     if(ind == energy.size()-1) return 0;
@@ -24,6 +26,21 @@ int frogJump(int ind, vector<int> &energy, vector<int> &dp){
     
 }
 
+// Method 2 : Using Tabulation
+
+int frogJumpTab(vector<int> &energy, vector<int> &dp){
+
+    dp[0] = 0;
+    for(int i=1;i<energy.size();i++){
+        int fs = dp[i-1] + abs(energy[i] - energy[i-1]);
+        int ss = INT_MAX;
+        if(i > 1) ss = dp[i-2] + abs(energy[i] - energy[i-2]);
+        dp[i] = min(fs,ss);
+    }
+
+    return dp[energy.size() - 1];
+}
+
 
 void inputArray(int n,vector<int> &arr){
     cout << "Enter the Energy Level at each Staircase : ";
@@ -37,6 +54,6 @@ int main(){
     vector<int> energy(stairs),dp(stairs,-1);
     inputArray(stairs,energy);
     cout << "Minimum Energy Required : ";
-    cout << frogJump(0,energy,dp) << endl;
+    cout << frogJumpTab(energy,dp) << endl;
     return 0;
 }
