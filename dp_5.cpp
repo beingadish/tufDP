@@ -61,13 +61,32 @@ int maxSumAdjTAB(vector<int> &integers, vector<int> &dp){
     return dp[integers.size() - 1];
 }
 
+// Space Optimisation
+
+int maxSumAdjOPTI(vector<int> &nums){
+    int prev = nums[0];
+    int sprev = 0;
+
+    for(int i =1;i<nums.size();i++){
+        int take = nums[i] + sprev;
+        int notTake = prev;
+
+        int curi = max(take,notTake);
+        sprev = prev;
+        prev = curi;
+    }
+
+    return prev;
+
+}
+
 int main(){
     int n;
     cout << "Enter the number of Integers : ";
     cin >> n;
     vector<int> integers(n,0);
-    vector<int> dp(n,-1);
+    // vector<int> dp(n,-1);
     inputArray(integers);
-    cout << "Maximum Sum of Adjacents Elements is : " << maxSumAdjTAB(integers,dp) << endl;
+    cout << "Maximum Sum of Adjacents Elements is : " << maxSumAdjOPTI(integers) << endl;
     return 0;
 }
