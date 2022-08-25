@@ -8,7 +8,7 @@ using namespace std;
 
 
 void inputArray(vector<int> &a){
-    cout << "Enter the Integers : ";
+    cout << "Enter the Values : ";
     for(int i =0;i<a.size();i++) cin >> a[i];
     cout << endl;
 }
@@ -36,7 +36,7 @@ int main(){
     cout << "Enter the number of Houses : ";
     cin >> n;
     vector<int> houses(n);
-    if(n == 1) cout << "The maximum value that Robber can steal is : " << houses[0] << endl;
+    if(n == 1) cout << "The maximum value that Robber can steal is : " << houses[0] << endl << endl;
     else {
         vector<int> temp1,temp2;
         inputArray(houses);
@@ -44,7 +44,7 @@ int main(){
             if(i != n-1) temp1.push_back(houses[i]);
             if(i != 0) temp2.push_back(houses[i]);
     }
-        cout << "The maximum value that Robber can steal is : " << max(houseRob(temp1),houseRob(temp2));
+        cout << "The maximum value that Robber can steal is : " << max(houseRob(temp1),houseRob(temp2)) << endl << endl;
     }
     
     return 0;
