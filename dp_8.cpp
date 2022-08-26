@@ -49,6 +49,12 @@ int totUniPathsTAB(int i, int j, vector<vector<int>> &dp){
 
 }
 
+// Space Optimization (2D Space Optimization)
+
+int totUniPathsOPTI(int i , int j){
+    
+}
+
 int main(){
     int m , n;
     cout << "Enter the Size of GRID as m n : ";
