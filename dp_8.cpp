@@ -52,14 +52,30 @@ int totUniPathsTAB(int i, int j, vector<vector<int>> &dp){
 // Space Optimization (2D Space Optimization)
 
 int totUniPathsOPTI(int i , int j){
-    
+    vector<int> prev(j,0);
+
+    for(int x =0;x<i;x++){
+        vector<int> cur(j,0);
+        for(int y = 0;y<j;y++){
+            if(x == 0 && y == 0) cur[y] = 1;
+            else{
+                int up=0,left=0;
+                if(x > 0) up = prev[y];
+                if(y > 0) left = cur[y-1];
+                cur[y] = up + left;
+            }
+        }
+        prev = cur;
+    }
+
+    return prev[j-1];
 }
 
 int main(){
     int m , n;
     cout << "Enter the Size of GRID as m n : ";
     cin >> m >> n;
-    vector<vector<int>> dp(m,vector<int>(n,0));
-    cout << "Total number of Unique Path from [0][0] to [" << m-1 << "][" << n-1 << "] are : " << totUniPathsTAB(m,n,dp) << endl << endl; 
+    // vector<vector<int>> dp(m,vector<int>(n,0));
+    cout << "Total number of Unique Path from [0][0] to [" << m-1 << "][" << n-1 << "] are : " << totUniPathsOPTI(m,n) << endl << endl; 
     return 0;
 }
