@@ -49,6 +49,40 @@ int ninjaDP(int day, int last, vector<vector<int>> &pts, vector<vector<int>> &dp
     return dp[day][last] = maxpt;
 }
 
+// Tabulation Method
+
+int ninjaTab(vector<vector<int>> &arr, vector<vector<int>> &dp){
+
+    // Converting the Base Cases into the DP Array
+
+    dp[0][0] = max(arr[0][1], arr[0][2]);
+    dp[0][1] = max(arr[0][0], arr[0][2]);
+    dp[0][2] = max(arr[0][1], arr[0][0]);
+    dp[0][3] = max(arr[0][0], max(arr[0][1], arr[0][2]));
+
+    // loop for the remaining days
+
+    for(int day =1;day<arr.size();day++){
+
+        // loop for all the possible last task performed 
+        for(int last = 0;last<4;last++){
+            dp[day][last] = 0;
+
+            // loop for all the tasks
+            for(int task =0;task<3;task++){
+
+                // condition for allowing those tasks that are not previously performed
+                if(task != last){
+                    int point = arr[day][task] + dp[day-1][task];
+                    dp[day][last] = max(dp[day][last],point);
+                }
+            }
+        }
+    }
+
+    return dp[arr.size()-1][3];
+}
+
 void input2dArray(vector<vector<int>> &arr){
     int j = arr.size();
     for(int i = 0;i<j;i++){
@@ -63,6 +97,6 @@ int main(){
     cin >> n;
     vector<vector<int>> days(n,vector<int>(3)),dp(n,vector<int>(4,-1));
     input2dArray(days);
-    cout << "The maximum points that the Ninja can Score by performing different tasks on adjacent days is : " << ninjaDP(n-1,3,days,dp) << endl << endl;
+    cout << "The maximum points that the Ninja can Score by performing different tasks on adjacent days is : " << ninjaTab(days,dp) << endl << endl;
     return 0;
 }
