@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int mod = (int)(1e9+7); // Can be used for returning the answers which are too large.
+
 // Unique Paths II (Maze Obstacles)     (CodeStudio // CodingNinjas)    Link --> https://www.codingninjas.com/codestudio/problems/maze-obstacles_977241?leftPanelTab=0
 
 // Using Recursion & Memoization
@@ -82,6 +84,6 @@ int main(){
     cout << "Enter the Dead State Matrix : " << endl;
     input2dArray(deadState);
     vector<vector<int>> dp(m,vector<int>(n,-1));
-    cout << "Total number of Unique Path from [0][0] to [" << m-1 << "][" << n-1 << "] without crossing any obstacles are : " << uniPathsIIOPTI(m,n,deadState) << endl << endl; 
+    cout << "Total number of Unique Path from [0][0] to [" << m-1 << "][" << n-1 << "] without crossing any obstacles are : " << uniPathsIIOPTI(m,n,deadState) << endl << endl;
     return 0;
 }
