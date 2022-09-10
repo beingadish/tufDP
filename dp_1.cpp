@@ -39,7 +39,7 @@ ulli fibOpti(ulli n){
 
 int main(){
     int N;
-    cout << "Enter the value of N : (tested & found accurate upto 1000) ";
+    cout << "Enter the value of N (tested & found accurate upto 1000) --> ";
     cin >> N;
     vector<ulli> dp1(N+1,-1),dp2(N,-1);
     cout << endl << "Using RECURRENCE method : " << endl << endl;
