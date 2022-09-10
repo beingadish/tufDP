@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// FROG JUMP (CodeStudio // CodingNinjas)
+// FROG JUMP (CodeStudio // CodingNinjas)       Link --> https://www.codingninjas.com/codestudio/problems/frog-jump_3621012
 
 // Method 1 : Using Simple Recursion (with Memoization)
 
