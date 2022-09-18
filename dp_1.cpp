@@ -39,17 +39,17 @@ ulli fibOpti(ulli n){
 
 int main(){
     int N;
-    cout << "Enter the value of N (tested & found accurate upto 1000) --> ";
+    cout << "Enter the value of N (tested & found accurate upto 1000000) --> ";
     cin >> N;
     vector<ulli> dp1(N+1,-1),dp2(N,-1);
-    cout << endl << "Using RECURRENCE method : " << endl << endl;
-    cout << "[ ";
-    for(int i =0;i<=N;i++) cout << fibRecur(i,dp1) << " ";
-    cout << "]" << endl;
-    cout << endl << "Using TABULAR method : " << endl << endl;
-    cout << "[ ";
-    for(int i =0;i<=N;i++) cout << fibTab(i,dp2) << " ";
-    cout << "]" << endl;
+    // cout << endl << "Using RECURRENCE method : " << endl << endl;
+    // cout << "[ ";
+    // for(int i =0;i<=N;i++) cout << fibRecur(i,dp1) << " ";
+    // cout << "]" << endl;
+    // cout << endl << "Using TABULAR method : " << endl << endl;
+    // cout << "[ ";
+    // for(int i =0;i<=N;i++) cout << fibTab(i,dp2) << " ";
+    // cout << "]" << endl;
     cout << endl << "Using OPTIMISED method : " << endl << endl;
     cout << "[ ";
     for(int i =0;i<=N;i++) cout << fibOpti(i) << " ";
