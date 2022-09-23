@@ -30,6 +30,11 @@ int solution(vector<int> &arr){
     return mini;
 }
 
+void inputArray(vector<int> &a){
+    cout << "Enter the Values in Array : ";
+    for(int i =0;i<a.size();i++) cin >> a[i];
+}
+
 
 int main(){
     int t;
@@ -40,6 +45,7 @@ int main(){
         cout << "Enter array size : ";
         cin >> n;
         vector<int> a(n);
+        inputArray(a);
         cout << solution(a) << endl;
     }
     return 0;
