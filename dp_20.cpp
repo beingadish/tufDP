@@ -32,17 +32,17 @@ int minimumElements(vector<int> &num, int x){
 
 int main(){
     int t;
-        cout << "Enter test cases : ";
-        cin >> t;
-        while(t--){
-            int n,tar;
-            cout << "Enter array size : ";
-            cin >> n;
-            cout << "Enter Target : ";
-            cin >> tar;
-            vector<int> a(n);
-            inputArray(a);
-            cout << minimumElements(a,tar) << endl;
-        }
+    cout << "Enter test cases : ";
+    cin >> t;
+    while(t--){
+        int n,tar;
+        cout << "Enter array size : ";
+        cin >> n;
+        cout << "Enter Target : ";
+        cin >> tar;
+        vector<int> a(n);
+        inputArray(a);
+        cout << minimumElements(a,tar) << endl;
+    }
     return 0;
 }
